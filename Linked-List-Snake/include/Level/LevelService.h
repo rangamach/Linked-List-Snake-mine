@@ -13,7 +13,7 @@ namespace Level
 
 		void Destroy();
 		void CreateLevelController();
-		void CreateLevel(LevelNumber level);
+		//void CreateLevel(LevelNumber level);
 
 	public:
 		LevelService();
@@ -22,6 +22,7 @@ namespace Level
 		void Initialize();
 		void Update();
 		void Render();
+		void CreateLevel(LevelNumber level);
 	};
 }
 
