@@ -18,6 +18,8 @@ namespace Player
 		void Initialize();
 		void Update();
 		void Render();
+
+		void SpawnPlayer();
 	};
 }
 
