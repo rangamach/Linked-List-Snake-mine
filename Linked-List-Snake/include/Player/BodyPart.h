@@ -21,6 +21,10 @@ namespace Player
 		sf::Vector2f GetBodyPartScreenPosition();
 		float GetRotationAngle();
 		void UpdatePosition();
+		sf::Vector2i GetNextPositionLeft();
+		sf::Vector2i GetNextPositionrRight();
+		sf::Vector2i GetNextPositionUp();
+		sf::Vector2i GetNextPositionDown();
 		void Destroy();
 
 	public:
@@ -31,6 +35,10 @@ namespace Player
 		void Render();
 
 		void SetDirection(Direction direction);
+		void SetPosition(sf::Vector2i position);
+		sf::Vector2i GetNextPosition();
+		Direction GetDirection();
+		sf::Vector2i GetPosition();
 	};
 }
 
