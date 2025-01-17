@@ -18,11 +18,33 @@ void BodyPart::InitializeBodyPartImage()
 	bodypart_image->setOriginAtCentre();
 }
 
-sf::Vector2f Player::BodyPart::GetBodyPartScreenPosition()
+sf::Vector2f BodyPart::GetBodyPartScreenPosition()
 {
 	float x = LevelView::border_offset_left + (bodypart_grid_position.x * bodypart_width) + (bodypart_width / 2);
 	float y = LevelView::border_offset_top + (bodypart_grid_position.y * bodypart_height) + (bodypart_height / 2);
 	return sf::Vector2f(x,y);
+}
+
+float BodyPart::GetRotationAngle()
+{
+	switch (bodypart_direction)
+	{
+	case Player::Direction::Up:
+		return 270.f;
+	case Player::Direction::Down:
+		return 90.f;
+	case Player::Direction::Left:
+		return 180.f;
+	case Player::Direction::Right:
+		return 0.f;
+	}
+}
+
+void BodyPart::UpdatePosition()
+{
+	bodypart_image->setPosition(GetBodyPartScreenPosition());
+	bodypart_image->setRotation(GetRotationAngle());
+	bodypart_image->update();
 }
 
 void BodyPart::Destroy()
@@ -55,4 +77,9 @@ void BodyPart::Initialize(float width, float height, sf::Vector2i position, Dire
 void BodyPart::Render()
 {
 	bodypart_image->render();
+}
+
+void BodyPart::SetDirection(Direction direction)
+{
+	this->bodypart_direction = direction;
 }
