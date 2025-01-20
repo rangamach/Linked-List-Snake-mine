@@ -2,9 +2,12 @@
 
 #include <SFML/System/Vector2.hpp>
 #include "Direction.h"
+#include "Linked List/SingleLinkedList.h"
 
 namespace Player
 {
+	using namespace LinkedList;
+
 	enum class SnakeState
 	{
 		Alive,
@@ -18,6 +21,7 @@ namespace Player
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
 		Direction default_direction = Direction::Right;
 		Direction direction;
+		SingleLinkedList* single_linked_list;
 
 		void ProcessPlayerInput();
 		void UpdateSnakeDirection();
@@ -25,6 +29,7 @@ namespace Player
 		void ProcessSnakeCollision();
 		void HandleRestart();
 		void Reset();
+		void CreateLinkedList();
 		void Destroy();
 
 	public:

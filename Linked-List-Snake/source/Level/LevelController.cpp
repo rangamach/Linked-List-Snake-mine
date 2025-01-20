@@ -36,3 +36,13 @@ void LevelController::Render()
 {
 	level_view->Render();
 }
+
+float LevelController::GetCellWidth()
+{
+	return level_model->GetCellWidth();;
+}
+
+float LevelController::GetCellHeight()
+{
+	return level_model->GetCellHeight();
+}

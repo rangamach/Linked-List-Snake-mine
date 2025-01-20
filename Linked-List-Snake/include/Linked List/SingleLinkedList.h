@@ -21,6 +21,8 @@ namespace LinkedList
 		~SingleLinkedList();
 		void Initialize(float width, float height, sf::Vector2i position, Direction direction);
 		void Render();
+
+		void CreateHeadNode();
 			
 	};
 }

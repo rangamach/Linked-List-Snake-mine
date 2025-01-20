@@ -1,7 +1,9 @@
 #include "../../include/Level/LevelService.h"
 #include "../../include/Level/LevelController.h"
+#include "../../include/Global/ServiceLocator.h"
 
 using namespace Level;
+using namespace Global;
 
 void LevelService::Destroy()
 {
@@ -13,9 +15,25 @@ void LevelService::CreateLevelController()
 	level_controller = new LevelController();
 }
 
+void LevelService::SpawnPlayer()
+{
+	ServiceLocator::getInstance()->GetPlayerService()->SpawnPlayer();
+}
+
 void LevelService::CreateLevel(LevelNumber level)
 {
 	current_level = level;
+	SpawnPlayer();
+}
+
+float LevelService::GetCellWidth()
+{
+	return level_controller->GetCellWidth();
+}
+
+float LevelService::GetCellHeight()
+{
+	return level_controller->GetCellHeight();
 }
 
 LevelService::LevelService()

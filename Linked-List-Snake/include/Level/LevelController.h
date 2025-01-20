@@ -19,6 +19,9 @@ namespace Level
 		void Initialize();
 		void Update();
 		void Render();
+
+		float GetCellWidth();
+		float GetCellHeight();
 	};
 }
 

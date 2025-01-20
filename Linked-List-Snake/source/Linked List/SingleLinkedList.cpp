@@ -24,4 +24,12 @@ void SingleLinkedList::Initialize(float width, float height, sf::Vector2i positi
 
 void SingleLinkedList::Render()
 {
+	head_node->body_part.Render();
+}
+
+void SingleLinkedList::CreateHeadNode()
+{
+	head_node = CreateNode();
+	head_node->body_part.Initialize(node_width, node_height, default_position, defaul_direction);
+	return;
 }

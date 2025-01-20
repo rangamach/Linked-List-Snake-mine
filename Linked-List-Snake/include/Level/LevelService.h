@@ -13,6 +13,7 @@ namespace Level
 
 		void Destroy();
 		void CreateLevelController();
+		void SpawnPlayer();
 
 	public:
 		LevelService();
@@ -22,6 +23,8 @@ namespace Level
 		void Update();
 		void Render();
 		void CreateLevel(LevelNumber level);
+		float GetCellWidth();
+		float GetCellHeight();
 	};
 }
 

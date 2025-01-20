@@ -11,4 +11,3 @@ namespace LinkedList
 		Node* next = nullptr;
 	};
 }
-
