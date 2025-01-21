@@ -23,8 +23,9 @@ namespace LinkedList
 		void Initialize(float width, float height, sf::Vector2i position, Direction direction);
 		void Render();
 
-		//void CreateHeadNode();
 		void InsertNodeAtTail();
+		void UpdateNodeDirection(Direction new_direction);
+		void UpdateNodePosition();
 			
 	};
 }
