@@ -58,6 +58,19 @@ void SnakeController::CreateLinkedList()
 	single_linked_list = new SingleLinkedList();
 }
 
+void SnakeController::DelayedUpdate()
+{
+	elapsed_time += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
+	if (elapsed_time >= movement_frame_duration)
+	{
+		elapsed_time = 0.f;
+		UpdateSnakeDirection();
+		ProcessSnakeCollision();
+		MoveSnake();
+	}
+}
+
 void SnakeController::Destroy()
 {
 	delete(single_linked_list);
@@ -88,9 +101,7 @@ void SnakeController::Update()
 	{
 	case SnakeState::Alive:
 		ProcessPlayerInput();
-		UpdateSnakeDirection();
-		ProcessSnakeCollision();
-		MoveSnake();
+		DelayedUpdate();
 		break;
 	case SnakeState::Dead:
 		HandleRestart();
