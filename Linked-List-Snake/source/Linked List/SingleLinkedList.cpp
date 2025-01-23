@@ -1,4 +1,5 @@
 #include "../../include/Linked List/SingleLinkedList.h"
+#include "../../include/Player/BodyPart.h"
 
 using namespace LinkedList;
 
@@ -42,7 +43,7 @@ void SingleLinkedList::Initialize(float width, float height, sf::Vector2i positi
 	node_width = width;
 	node_height = height;
 	default_position = position;
-	defaul_direction = direction;
+	default_direction = direction;
 }
 
 void SingleLinkedList::Render()
@@ -63,7 +64,7 @@ void SingleLinkedList::InsertNodeAtTail()
 	if (current_node == nullptr)
 	{
 		head_node = new_node;
-		new_node->body_part.Initialize(node_width, node_height, default_position, defaul_direction);
+		new_node->body_part.Initialize(node_width, node_height, default_position, default_direction);
 		return;
 	}
 	while (current_node->next != nullptr)
@@ -81,7 +82,7 @@ void SingleLinkedList::UpdateNodeDirection(Direction new_direction)
 		Direction prev_direction = current_node->body_part.GetDirection();
 		current_node->body_part.SetDirection(new_direction);
 		new_direction = prev_direction;
-		current_node - current_node->next;
+		current_node = current_node->next;
 	}
 }
 
@@ -92,5 +93,6 @@ void SingleLinkedList::UpdateNodePosition()
 	while (current_node != nullptr)
 	{
 		current_node->body_part.UpdatePosition();
+		current_node = current_node->next;
 	}
 }

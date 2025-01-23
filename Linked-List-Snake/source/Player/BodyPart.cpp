@@ -2,6 +2,7 @@
 #include "../../include/UI/UIElement/ImageView.h"
 #include "../../include/Global/Config.h"
 #include "../../include/Level/LevelView.h"
+#include "../../include/Level/LevelModel.h"
 
 using namespace Global;
 using namespace Player;
@@ -42,6 +43,8 @@ float BodyPart::GetRotationAngle()
 
 void BodyPart::UpdatePosition()
 {
+	bodypart_grid_position = GetNextPosition();
+
 	bodypart_image->setPosition(GetBodyPartScreenPosition());
 	bodypart_image->setRotation(GetRotationAngle());
 	bodypart_image->update();
@@ -49,22 +52,26 @@ void BodyPart::UpdatePosition()
 
 sf::Vector2i Player::BodyPart::GetNextPositionLeft()
 {
-	return sf::Vector2i(bodypart_grid_position.x - 1, bodypart_grid_position.y);
+	//return sf::Vector2i(bodypart_grid_position.x - 1, bodypart_grid_position.y);
+	return sf::Vector2i((bodypart_grid_position.x - 1 + LevelModel::number_of_columns) % (LevelModel::number_of_columns), bodypart_grid_position.y);
 }
 
-sf::Vector2i Player::BodyPart::GetNextPositionrRight()
+sf::Vector2i Player::BodyPart::GetNextPositionRight()
 {
-	return sf::Vector2i(bodypart_grid_position.x + 1, bodypart_grid_position.y);
+	//return sf::Vector2i(bodypart_grid_position.x + 1, bodypart_grid_position.y);
+	return sf::Vector2i((bodypart_grid_position.x + 1) % (LevelModel::number_of_columns), bodypart_grid_position.y);
 }
 
 sf::Vector2i Player::BodyPart::GetNextPositionUp()
 {
-	return sf::Vector2i(bodypart_grid_position.x, bodypart_grid_position.y - 1);
+	//return sf::Vector2i(bodypart_grid_position.x, bodypart_grid_position.y - 1);
+	return sf::Vector2i(bodypart_grid_position.x, (bodypart_grid_position.y - 1 + (LevelModel::number_of_rows)) % (LevelModel::number_of_rows));
 }
 
 sf::Vector2i Player::BodyPart::GetNextPositionDown()
 {
-	return sf::Vector2i(bodypart_grid_position.x, bodypart_grid_position.y + 1);
+	//return sf::Vector2i(bodypart_grid_position.x, bodypart_grid_position.y + 1);
+	return sf::Vector2i(bodypart_grid_position.x, (bodypart_grid_position.y + 1) % (LevelModel::number_of_rows));
 }
 
 void BodyPart::Destroy()
@@ -120,7 +127,7 @@ sf::Vector2i BodyPart::GetNextPosition()
 	case Player::Direction::Left:
 		return GetNextPositionLeft();
 	case Player::Direction::Right:
-		return GetNextPositionrRight();
+		return GetNextPositionRight();
 	default:
 		return bodypart_grid_position;
 	}

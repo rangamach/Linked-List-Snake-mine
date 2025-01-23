@@ -12,7 +12,7 @@ namespace LinkedList
 		float node_width;
 		float node_height;
 		sf::Vector2i default_position;
-		Direction defaul_direction;
+		Direction default_direction;
 
 		Node* CreateNode();
 		sf::Vector2i GetNewNodePosition(Node* ref_node);

@@ -21,7 +21,7 @@ namespace Player
 		sf::Vector2f GetBodyPartScreenPosition();
 		float GetRotationAngle();
 		sf::Vector2i GetNextPositionLeft();
-		sf::Vector2i GetNextPositionrRight();
+		sf::Vector2i GetNextPositionRight();
 		sf::Vector2i GetNextPositionUp();
 		sf::Vector2i GetNextPositionDown();
 		void Destroy();
