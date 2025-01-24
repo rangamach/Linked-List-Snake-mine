@@ -24,6 +24,8 @@ namespace LinkedList
 		void Render();
 
 		void InsertNodeAtTail();
+		void RemoveNodeAtHead();
+		void RemoveAllNodes();
 		void UpdateNodeDirection(Direction new_direction);
 		void UpdateNodePosition();
 		bool ProcessNodeCollision();

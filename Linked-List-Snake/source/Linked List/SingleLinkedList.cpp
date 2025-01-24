@@ -73,6 +73,23 @@ void SingleLinkedList::InsertNodeAtTail()
 	new_node->body_part.Initialize(node_width, node_height, GetNewNodePosition(current_node), current_node->body_part.GetDirection());
 }
 
+void SingleLinkedList::RemoveNodeAtHead()
+{
+	Node* cur_node = head_node;
+	head_node = head_node->next;
+	cur_node->next = nullptr;
+	delete(cur_node);
+}
+
+void SingleLinkedList::RemoveAllNodes()
+{
+	if (head_node == nullptr) return;
+	while (head_node != nullptr)
+	{
+		RemoveNodeAtHead();
+	}
+}
+
 void SingleLinkedList::UpdateNodeDirection(Direction new_direction)
 {
 	Node* current_node = head_node;
