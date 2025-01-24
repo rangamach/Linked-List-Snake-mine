@@ -119,7 +119,7 @@ bool SingleLinkedList::ProcessNodeCollision()
 	if (head_node == nullptr) return false;
 	
 	sf::Vector2i predicted_pos = head_node->body_part.GetNextPosition();
-	Node* cur_node = head_node;
+	Node* cur_node = head_node->next;
 	while (cur_node != nullptr)
 	{
 		if (cur_node->body_part.GetNextPosition() == predicted_pos) return true;
