@@ -51,10 +51,20 @@ void SnakeController::ProcessSnakeCollision()
 
 void SnakeController::HandleRestart()
 {
+	restart_counter += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+
+	if (restart_counter >= restart_duration)
+	{
+		RespawnSnake();
+	}
 }
 
 void SnakeController::Reset()
 {
+	snake_state = SnakeState::Alive;
+	direction = default_direction;
+	elapsed_time = 0.f;
+	restart_counter = 0.f;
 }
 
 void SnakeController::CreateLinkedList()
@@ -128,6 +138,9 @@ void SnakeController::SpawnSnake()
 
 void SnakeController::RespawnSnake()
 {
+	single_linked_list->RemoveAllNodes();
+	Reset();
+	SpawnSnake();
 }
 
 SnakeState SnakeController::GetSnakeState()
