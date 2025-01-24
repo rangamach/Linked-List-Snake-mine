@@ -26,6 +26,7 @@ namespace LinkedList
 		void InsertNodeAtTail();
 		void UpdateNodeDirection(Direction new_direction);
 		void UpdateNodePosition();
+		bool ProcessNodeCollision();
 			
 	};
 }

@@ -96,3 +96,17 @@ void SingleLinkedList::UpdateNodePosition()
 		current_node = current_node->next;
 	}
 }
+
+bool SingleLinkedList::ProcessNodeCollision()
+{
+	if (head_node == nullptr) return false;
+	
+	sf::Vector2i predicted_pos = head_node->body_part.GetNextPosition();
+	Node* cur_node = head_node;
+	while (cur_node != nullptr)
+	{
+		if (cur_node->body_part.GetNextPosition() == predicted_pos) return true;
+		cur_node = cur_node->next;
+	}
+	return false;
+}

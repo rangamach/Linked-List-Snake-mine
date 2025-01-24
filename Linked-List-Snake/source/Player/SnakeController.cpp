@@ -43,6 +43,10 @@ void SnakeController::MoveSnake()
 
 void SnakeController::ProcessSnakeCollision()
 {
+	if (single_linked_list->ProcessNodeCollision())
+	{
+		snake_state = SnakeState::Dead;
+	}
 }
 
 void SnakeController::HandleRestart()
