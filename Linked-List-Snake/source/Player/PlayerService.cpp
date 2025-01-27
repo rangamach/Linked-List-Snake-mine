@@ -44,3 +44,8 @@ void PlayerService::SpawnPlayer()
 {
 	snake_controller->RespawnSnake();
 }
+
+std::vector<sf::Vector2i> PlayerService::GetCurrentSnakePositionList()
+{
+	return snake_controller->GetCurrentSnakePositionList();
+}

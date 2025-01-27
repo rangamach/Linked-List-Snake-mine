@@ -2,6 +2,7 @@
 #include "../../include/Food/FoodItem.h"
 #include "../../include/Food/FoodType.h"
 #include "../../include/Global/ServiceLocator.h"
+#include "../../include/Level/LevelModel.h"
 
 using namespace Food;
 using namespace Global;
@@ -13,9 +14,49 @@ FoodItem* FoodService::CreateFoodItem(sf::Vector2i position, FoodType type)
 	return food;
 }
 
+sf::Vector2i FoodService::GetRandomPosition()
+{
+	std::uniform_int_distribution<int> x(0, Level::LevelModel::number_of_columns - 1);
+	std::uniform_int_distribution<int> y(0, Level::LevelModel::number_of_rows - 1);
+
+	int x_pos = x(random_engine);
+	int y_pos = y(random_engine);
+
+	return sf::Vector2i(x_pos,y_pos);
+}
+
 void FoodService::SpawnFood()
 {
-	current_food_item = CreateFoodItem(sf::Vector2i(4, 6), FoodType::Burger);
+	current_food_item = CreateFoodItem(GetValidFoodPosition(), GetRandomFoodType());
+}
+
+bool FoodService::IsValidFoodPosition(std::vector<sf::Vector2i> position_data, sf::Vector2i food_position)
+{
+	for (int i = 0; i < position_data.size(); i++)
+	{
+		if (food_position == position_data[i]) return false;
+	}
+	return true;
+}
+
+sf::Vector2i FoodService::GetValidFoodPosition()
+{
+	std::vector<sf::Vector2i> player_position_data = ServiceLocator::getInstance()->GetPlayerService()->GetCurrentSnakePositionList();
+	std::vector<sf::Vector2i> element_position_data = ServiceLocator::getInstance()->GetElementService()->GetElementPositionsList();
+	sf::Vector2i food_spawn_position;
+
+	do
+	{
+		food_spawn_position = GetRandomPosition();
+	} while (!IsValidFoodPosition(player_position_data, food_spawn_position) || !IsValidFoodPosition(element_position_data, food_spawn_position));
+
+	return food_spawn_position;
+}
+
+FoodType Food::FoodService::GetRandomFoodType()
+{
+	std::uniform_int_distribution<int> type(0, FoodItem::number_of_food_items - 1);
+	return static_cast<FoodType>(type(random_engine));
 }
 
 void FoodService::Destroy()
@@ -24,7 +65,7 @@ void FoodService::Destroy()
 		delete(current_food_item);
 }
 
-FoodService::FoodService()
+FoodService::FoodService() : random_engine(random_device())
 {
 	current_food_item = nullptr;
 }

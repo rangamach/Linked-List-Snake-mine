@@ -2,7 +2,6 @@
 
 #include <vector>
 #include <SFML/System/Vector2.hpp>
-//#include "../../include/Element/ElementData.h"
 
 namespace Element
 {
@@ -24,6 +23,7 @@ namespace Element
 		void Render();
 
 		const void SpawnElements(std::vector<ElementData>& element_data_list, float cell_width, float cell_height);
+		std::vector<sf::Vector2i> GetElementPositionsList();
 	};
 }
 

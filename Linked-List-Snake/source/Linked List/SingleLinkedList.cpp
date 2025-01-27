@@ -127,3 +127,16 @@ bool SingleLinkedList::ProcessNodeCollision()
 	}
 	return false;
 }
+
+std::vector<sf::Vector2i> SingleLinkedList::GetNodePositionsList()
+{
+	std::vector<sf::Vector2i> nodes_position_list;
+	Node* current_node = head_node;
+
+	while (current_node != nullptr)
+	{
+		nodes_position_list.push_back(current_node->body_part.GetPosition());
+		current_node = current_node->next;
+	}
+	return nodes_position_list;
+}

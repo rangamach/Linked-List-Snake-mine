@@ -24,6 +24,8 @@ namespace Element
 		void Initialize(sf::Vector2i pos, float width, float height);
 		void Update();
 		void Render();
+
+		sf::Vector2i GetObstaclePosition();
 	};
 }
 

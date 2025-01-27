@@ -48,3 +48,14 @@ const void ElementService::SpawnElements(std::vector<ElementData>& element_data_
 		}
 	}
 }
+
+std::vector<sf::Vector2i> ElementService::GetElementPositionsList()
+{
+	std::vector<sf::Vector2i> elements_position_list;
+
+	for (int i = 0; i < obstacle_list.size(); i++)
+	{
+		elements_position_list.push_back(obstacle_list[i]->GetObstaclePosition());
+	}
+	return elements_position_list;
+}

@@ -56,3 +56,8 @@ void Obstacle::Render()
 {
 	obstacle_image->render();
 }
+
+sf::Vector2i Obstacle::GetObstaclePosition()
+{
+	return position;
+}

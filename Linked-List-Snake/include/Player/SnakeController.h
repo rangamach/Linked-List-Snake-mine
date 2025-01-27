@@ -50,6 +50,7 @@ namespace Player
 		void RespawnSnake();
 		SnakeState GetSnakeState();
 		void SetSnakeState(SnakeState state);
+		std::vector<sf::Vector2i> GetCurrentSnakePositionList();
 	};
 }
 

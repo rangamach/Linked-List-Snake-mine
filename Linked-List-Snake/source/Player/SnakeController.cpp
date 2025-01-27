@@ -152,3 +152,8 @@ void SnakeController::SetSnakeState(SnakeState state)
 {
 	snake_state = state;
 }
+
+std::vector<sf::Vector2i> SnakeController::GetCurrentSnakePositionList()
+{
+	return single_linked_list->GetNodePositionsList();
+}
