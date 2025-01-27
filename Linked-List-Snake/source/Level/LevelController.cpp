@@ -46,3 +46,8 @@ float LevelController::GetCellHeight()
 {
 	return level_model->GetCellHeight();
 }
+
+const std::vector<Element::ElementData>& Level::LevelController::GetElementDataList(int level_to_load)
+{
+	return level_model->GetElementDataList(level_to_load);
+}
