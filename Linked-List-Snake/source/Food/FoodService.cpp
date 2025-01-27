@@ -53,10 +53,30 @@ sf::Vector2i FoodService::GetValidFoodPosition()
 	return food_spawn_position;
 }
 
-FoodType Food::FoodService::GetRandomFoodType()
+FoodType FoodService::GetRandomFoodType()
 {
 	std::uniform_int_distribution<int> type(0, FoodItem::number_of_food_items - 1);
 	return static_cast<FoodType>(type(random_engine));
+}
+
+void FoodService::UpdateElapsedDuration()
+{
+	elapsed_duration += ServiceLocator::getInstance()->getTimeService()->getDeltaTime();
+}
+
+void FoodService::HandleFoodSpawning()
+{
+	if (elapsed_duration >= spawn_duration)
+	{
+		Destroy();
+		Reset();
+		SpawnFood();
+	}
+}
+
+void FoodService::Reset()
+{
+	elapsed_duration = 0.f;
 }
 
 void FoodService::Destroy()
@@ -77,12 +97,19 @@ FoodService::~FoodService()
 
 void FoodService::Initialize()
 {
+	elapsed_duration = spawn_duration;
+
 	StartFoodSpawning();
 }
 
 void FoodService::Update()
 {
-	if (current_food_item)
+	if (current_food_spawning_status == FoodSpawningStatus::Active)
+	{
+		UpdateElapsedDuration();
+		HandleFoodSpawning();
+	}
+	if (current_food_item)	
 		current_food_item->Update();
 }
 
@@ -94,8 +121,17 @@ void FoodService::Render()
 
 void FoodService::StartFoodSpawning()
 {
+	current_food_spawning_status = FoodSpawningStatus::Active;
+
 	cell_width = ServiceLocator::getInstance()->GetLevelService()->GetCellWidth();
 	cell_height = ServiceLocator::getInstance()->GetLevelService()->GetCellHeight();
 
 	SpawnFood();
+}
+
+void FoodService::StopFoodSpawning()
+{
+	current_food_spawning_status = FoodSpawningStatus::Inactive;
+	Destroy();
+	Reset();
 }
