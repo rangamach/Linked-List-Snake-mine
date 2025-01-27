@@ -11,6 +11,7 @@ namespace Global
 	using namespace Level;
 	using namespace Player;
 	using namespace Element;
+	using namespace Food;
 	using namespace Main;
 
 	ServiceLocator::ServiceLocator()
@@ -23,6 +24,7 @@ namespace Global
 		level_service = nullptr;
 		player_service = nullptr;
 		element_service = nullptr;
+		food_service = nullptr;
 
 		createServices();
 	}
@@ -39,6 +41,7 @@ namespace Global
 		level_service = new LevelService();
 		player_service = new PlayerService();
 		element_service = new ElementService();
+		food_service = new FoodService();
 	}
 
 	void ServiceLocator::initialize()
@@ -51,6 +54,7 @@ namespace Global
 		level_service->Initialize();
 		player_service->Initialize();
 		element_service->Initialize();
+		food_service->Initialize();	
 	}
 
 	void ServiceLocator::update()
@@ -62,6 +66,7 @@ namespace Global
 			level_service->Update();
 			element_service->Update();
 			player_service->Update();
+			food_service->Update();
 		}
 		ui_service->update();
 		time_service->update();
@@ -76,6 +81,7 @@ namespace Global
 			level_service->Render();
 			element_service->Render();
 			player_service->Render();
+			food_service->Render();
 		}
 		ui_service->render();
 	}
