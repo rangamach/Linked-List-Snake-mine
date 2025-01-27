@@ -32,6 +32,9 @@ namespace Player
 		void UpdateSnakeDirection();
 		void MoveSnake();
 		void ProcessSnakeCollision();
+		void ProcessBodyCollision();
+		void ProcessElementCollision();
+		void ProcessFoodCollision();
 		void HandleRestart();
 		void Reset();
 		void CreateLinkedList();

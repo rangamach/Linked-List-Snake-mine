@@ -8,6 +8,7 @@ using namespace LinkedList;
 using namespace Global;
 using namespace Level;
 using namespace Event;
+using namespace Sound;
 
 void SnakeController::ProcessPlayerInput()
 {
@@ -43,10 +44,26 @@ void SnakeController::MoveSnake()
 
 void SnakeController::ProcessSnakeCollision()
 {
+	ProcessBodyCollision();
+	ProcessElementCollision();
+	ProcessFoodCollision();
+}
+
+void SnakeController::ProcessBodyCollision()
+{
 	if (single_linked_list->ProcessNodeCollision())
 	{
 		snake_state = SnakeState::Dead;
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::DEATH);
 	}
+}
+
+void SnakeController::ProcessElementCollision()
+{
+}
+
+void SnakeController::ProcessFoodCollision()
+{
 }
 
 void SnakeController::HandleRestart()
