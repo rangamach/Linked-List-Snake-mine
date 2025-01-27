@@ -36,6 +36,7 @@ namespace Player
 		void Reset();
 		void CreateLinkedList();
 		void DelayedUpdate();
+		void SpawnSnake();
 		void Destroy();
 
 	public:
@@ -46,7 +47,6 @@ namespace Player
 		void Update();
 		void Render();
 
-		void SpawnSnake();
 		void RespawnSnake();
 		SnakeState GetSnakeState();
 		void SetSnakeState(SnakeState state);

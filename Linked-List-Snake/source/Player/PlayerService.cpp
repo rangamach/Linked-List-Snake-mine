@@ -42,5 +42,5 @@ void PlayerService::Render()
 
 void PlayerService::SpawnPlayer()
 {
-	snake_controller->SpawnSnake();
+	snake_controller->RespawnSnake();
 }
