@@ -2,6 +2,7 @@
 
 #include <vector>
 #include <SFML/System/Vector2.hpp>
+#include "../Linked List/Node.h"
 
 namespace Element
 {
@@ -24,6 +25,7 @@ namespace Element
 
 		const void SpawnElements(std::vector<ElementData>& element_data_list, float cell_width, float cell_height);
 		std::vector<sf::Vector2i> GetElementPositionsList();
+		bool ProcessElementCollision(LinkedList::Node* head_node);
 	};
 }
 

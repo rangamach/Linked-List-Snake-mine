@@ -30,6 +30,7 @@ namespace LinkedList
 		void UpdateNodePosition();
 		bool ProcessNodeCollision();
 		std::vector<sf::Vector2i> GetNodePositionsList();
+		Node* GetHeadNode();
 			
 	};
 }

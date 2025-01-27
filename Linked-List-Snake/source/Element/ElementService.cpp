@@ -1,6 +1,7 @@
 #include "../../include/Element/ElementService.h"
 #include "../../include/Element/Obstacle.h"
 #include "../../include/Element/ElementData.h"
+#include "Linked List/Node.h"
 
 using namespace Element;
 
@@ -58,4 +59,16 @@ std::vector<sf::Vector2i> ElementService::GetElementPositionsList()
 		elements_position_list.push_back(obstacle_list[i]->GetObstaclePosition());
 	}
 	return elements_position_list;
+}
+
+bool Element::ElementService::ProcessElementCollision(LinkedList::Node* head_node)
+{
+	for (int i = 0; i < obstacle_list.size(); i++)
+	{
+		if (obstacle_list[i]->GetObstaclePosition() == head_node->body_part.GetNextPosition() || obstacle_list[i]->GetObstaclePosition() == head_node->body_part.GetPosition())
+		{
+			return true;
+		}
+	}
+	return false;
 }

@@ -9,6 +9,7 @@ using namespace Global;
 using namespace Level;
 using namespace Event;
 using namespace Sound;
+using namespace Element;
 
 void SnakeController::ProcessPlayerInput()
 {
@@ -60,6 +61,13 @@ void SnakeController::ProcessBodyCollision()
 
 void SnakeController::ProcessElementCollision()
 {
+	ElementService* element_service = ServiceLocator::getInstance()->GetElementService();
+
+	if (element_service->ProcessElementCollision(single_linked_list->GetHeadNode()))
+	{
+		snake_state = SnakeState::Dead;
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::DEATH);
+	}
 }
 
 void SnakeController::ProcessFoodCollision()

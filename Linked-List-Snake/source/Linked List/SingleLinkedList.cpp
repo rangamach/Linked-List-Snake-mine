@@ -140,3 +140,8 @@ std::vector<sf::Vector2i> SingleLinkedList::GetNodePositionsList()
 	}
 	return nodes_position_list;
 }
+
+Node* SingleLinkedList::GetHeadNode()
+{
+	return head_node;
+}
