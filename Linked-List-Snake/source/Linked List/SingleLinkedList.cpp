@@ -31,6 +31,21 @@ void SingleLinkedList::InitializeNode(Node* new_node, Node* ref_node, Operation 
 	new_node->body_part.Initialize(node_width, node_height, position, ref_node->body_part.GetDirection());
 }
 
+int SingleLinkedList::FindMiddleNode()
+{
+	Node* slow = head_node;
+	Node* fast = head_node;
+	int mid_ind = 0;
+
+	while (fast != nullptr && fast->next != nullptr)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+		mid_ind++;
+	}
+	return mid_ind;
+}
+
 SingleLinkedList::SingleLinkedList()
 {
 	head_node = nullptr;
@@ -127,6 +142,17 @@ void SingleLinkedList::ShiftNodeAfterInsertion(Node* new_node, Node* cur_node, N
 		next_node = next_node->next;
 	}
 	InitializeNode(cur_node, prev_node, Operation::Tail);
+}
+
+void SingleLinkedList::InsertNodeAtMiddle()
+{
+	if (head_node == nullptr)
+	{
+		InsertNodeAtHead();
+		return;
+	}
+	int mid_index = FindMiddleNode();
+	InsertNodeAtIndex(mid_index);
 }
 
 void SingleLinkedList::RemoveNodeAtHead()
