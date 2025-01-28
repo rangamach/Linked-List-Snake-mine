@@ -46,6 +46,20 @@ int SingleLinkedList::FindMiddleNode()
 	return mid_ind;
 }
 
+Node* SingleLinkedList::FindNodeAtIndex(int index)
+{
+	int cur_ind = 0;
+	Node* cur_node = head_node;
+	Node* prev_node = nullptr;
+	while (cur_node != nullptr && cur_ind <= index)
+	{
+		prev_node = cur_node;
+		cur_node = cur_node->next;
+		cur_ind++;
+	}
+	return prev_node;
+}
+
 SingleLinkedList::SingleLinkedList()
 {
 	head_node = nullptr;
@@ -234,6 +248,23 @@ void SingleLinkedList::RemoveNodeAtTail()
 	}
 	delete(cur_node->next);
 	cur_node->next = nullptr;
+}
+
+void SingleLinkedList::RemoveHalfNodes()
+{
+	if (linked_list_size <= 1) return;
+	int half_length = linked_list_size / 2;
+	int new_tail_index = half_length - 1;
+	Node* prev_node = FindNodeAtIndex(new_tail_index);
+	Node* cur_node = prev_node->next;
+	while (cur_node != nullptr)
+	{
+		Node* node_to_delete = cur_node;
+		cur_node = cur_node->next;
+		delete(node_to_delete);
+		linked_list_size--;
+	}
+	prev_node->next = nullptr;
 }
 
 void SingleLinkedList::RemoveAllNodes()
