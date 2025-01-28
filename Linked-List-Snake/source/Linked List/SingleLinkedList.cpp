@@ -161,6 +161,61 @@ void SingleLinkedList::RemoveNodeAtHead()
 	head_node = head_node->next;
 	cur_node->next = nullptr;
 	delete(cur_node);
+	linked_list_size--;
+}
+
+void SingleLinkedList::ShiftNodeAfterRemoval(Node* cur_node)
+{
+	sf::Vector2i prev_node_pos = cur_node->body_part.GetPosition();
+	Direction prev_node_dir = cur_node->body_part.GetDirection();
+	cur_node = cur_node->next;
+	while (cur_node != nullptr)
+	{
+		sf::Vector2i temp_node_pos = cur_node->body_part.GetPosition();
+		Direction temp_node_dir = cur_node->body_part.GetDirection();
+		cur_node->body_part.SetPosition(temp_node_pos);
+		cur_node->body_part.SetDirection(temp_node_dir);
+		cur_node = cur_node->next;
+		prev_node_pos = temp_node_pos;
+		prev_node_dir = temp_node_dir;
+	}
+}
+
+void SingleLinkedList::RemoveNodeAtIndex(int index)
+{
+	int cur_ind = 0;
+	Node* cur_node = head_node;
+	Node* prev_node = nullptr;
+	while (cur_node != nullptr && cur_ind < index)
+	{
+		prev_node = cur_node;
+		cur_node = cur_node->next;
+		cur_ind++;
+	}
+	prev_node->next = cur_node->next;
+	ShiftNodeAfterRemoval(cur_node);
+	delete(cur_node);
+	linked_list_size--;
+}
+
+void LinkedList::SingleLinkedList::RemoveNodeAt(int index)
+{
+	if (index < 0 || index >= linked_list_size) return;
+	if (index == 0)
+	{
+		RemoveNodeAtHead();
+	}
+	else
+	{
+		RemoveNodeAtIndex(index);
+	}
+}
+
+void SingleLinkedList::RemoveNodeAtMiddle()
+{
+	if (head_node == nullptr) return;
+	int mid_ind = FindMiddleNode();
+	RemoveNodeAt(mid_ind);
 }
 
 void SingleLinkedList::RemoveAllNodes()
