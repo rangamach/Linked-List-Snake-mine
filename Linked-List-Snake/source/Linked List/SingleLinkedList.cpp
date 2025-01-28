@@ -64,6 +64,7 @@ void SingleLinkedList::Initialize(float width, float height, sf::Vector2i positi
 	node_height = height;
 	default_position = position;
 	default_direction = direction;
+	linked_list_size = 0;
 }
 
 void SingleLinkedList::Render()
@@ -91,6 +92,21 @@ void SingleLinkedList::InsertNodeAtTail()
 		current_node = current_node->next;
 	current_node->next = new_node;
 	new_node->body_part.Initialize(node_width, node_height, GetNewNodePosition(current_node), current_node->body_part.GetDirection());
+}
+
+void SingleLinkedList::InsertNodeAtHead()
+{
+	linked_list_size++;
+	Node* new_node = CreateNode();
+	if (head_node == nullptr)
+	{
+		head_node = new_node;
+		InitializeNode(new_node,nullptr,Operation::Head);
+		return;
+	}
+	InitializeNode(new_node, head_node, Operation::Head);
+	new_node->next = head_node;
+	head_node = new_node;
 }
 
 void SingleLinkedList::RemoveNodeAtHead()
