@@ -68,10 +68,10 @@ void SingleLinkedList::InsertNodeAtTail()
 		InitializeNode(new_node, nullptr, Operation::Tail);
 		return;
 	}
-	while (cur_node == nullptr)
+	while (cur_node->next != nullptr)
 		cur_node = cur_node->next;
 	cur_node->next = new_node;
-	InitializeNode(new_node, cur_node, Operation::Tail);
+	InitializeNode(new_node,cur_node,Operation::Tail);
 }
 
 void SingleLinkedList::InsertNodeAtHead()
@@ -87,6 +87,46 @@ void SingleLinkedList::InsertNodeAtHead()
 	InitializeNode(new_node, head_node, Operation::Head);
 	new_node->next = head_node;
 	head_node = new_node;
+}
+
+void SingleLinkedList::InsertNodeAtIndex(int index)
+{
+	if (index < 0 || index >= linked_list_size) return;
+	if (index == 0)
+	{
+		InsertNodeAtHead();
+		return;
+	}
+	Node* new_node = CreateNode();
+	int cur_index = 0;
+	Node* cur_node = head_node;
+	Node* prev_node = nullptr;
+	while (cur_node != nullptr && cur_index < index)
+	{
+		prev_node = cur_node;
+		cur_node = cur_node->next;
+		cur_index++;
+	}
+	prev_node->next = new_node;
+	new_node->next = cur_node;
+	InitializeNode(new_node, prev_node, Operation::Tail);
+	linked_list_size++;
+	ShiftNodeAfterInsertion(new_node, cur_node, prev_node);
+}
+
+void SingleLinkedList::ShiftNodeAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node)
+{
+	Node* next_node = cur_node;
+	while (cur_node != nullptr && next_node != nullptr)
+	{
+		cur_node->body_part.SetPosition(next_node->body_part.GetPosition());
+		cur_node->body_part.SetDirection(next_node->body_part.GetDirection());
+
+		prev_node = cur_node;
+		cur_node = next_node;
+		next_node = next_node->next;
+	}
+	InitializeNode(cur_node, prev_node, Operation::Tail);
 }
 
 void SingleLinkedList::RemoveNodeAtHead()
