@@ -26,6 +26,7 @@ namespace LinkedList
 		void InitializeNode(Node* new_node, Node* ref_node, Operation operation);
 		int FindMiddleNode();
 		Node* FindNodeAtIndex(int index);
+		Direction GetReverseDirection(Direction ref_dir);
 
 	public:
 		SingleLinkedList();
@@ -46,6 +47,8 @@ namespace LinkedList
 		void RemoveNodeAtTail();
 		void RemoveHalfNodes();
 		void RemoveAllNodes();
+		Direction Reverse();
+		void ReverseNodeDirection();
 		void UpdateNodeDirection(Direction new_direction);
 		void UpdateNodePosition();
 		bool ProcessNodeCollision();

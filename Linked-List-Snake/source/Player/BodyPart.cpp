@@ -104,6 +104,7 @@ void BodyPart::Render()
 
 void BodyPart::SetDirection(Direction direction)
 {
+	previous_direction = this->bodypart_direction;
 	this->bodypart_direction = direction;
 }
 
@@ -154,4 +155,10 @@ Direction BodyPart::GetDirection()
 sf::Vector2i BodyPart::GetPosition()
 {
 	return bodypart_grid_position;
+}
+
+Direction BodyPart::GetPreviousDirection()
+{
+
+	return previous_direction;
 }

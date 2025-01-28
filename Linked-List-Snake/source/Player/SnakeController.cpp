@@ -16,23 +16,29 @@ using namespace Food;
 
 void SnakeController::ProcessPlayerInput()
 {
+	if (current_input_state == InputState::Processing)
+		return;
 	EventService* event_service = ServiceLocator::getInstance()->getEventService();
 
 	if (event_service->pressedUpArrowKey() && direction != Direction::Down)
 	{
 		direction = Direction::Up;
+		current_input_state = InputState::Processing;
 	}
 	else if (event_service->pressedDownArrowKey() && direction != Direction::Up)
 	{
 		direction = Direction::Down;
+		current_input_state = InputState::Processing;
 	}
 	else if (event_service->pressedLeftArrowKey() && direction != Direction::Right)
 	{
 		direction = Direction::Left;
+		current_input_state = InputState::Processing;
 	}
 	else if (event_service->pressedRightArrowKey() && direction != Direction::Left)
 	{
 		direction = Direction::Right;
+		current_input_state = InputState::Processing;
 	}
 }
 
@@ -135,6 +141,7 @@ void SnakeController::Reset()
 	direction = default_direction;
 	elapsed_time = 0.f;
 	restart_counter = 0.f;
+	current_input_state = InputState::Waiting;
 }
 
 void SnakeController::CreateLinkedList()
@@ -151,7 +158,9 @@ void SnakeController::DelayedUpdate()
 		elapsed_time = 0.f;
 		UpdateSnakeDirection();
 		ProcessSnakeCollision();
-		MoveSnake();
+		if(snake_state != SnakeState::Dead)
+			MoveSnake();
+		current_input_state = InputState::Waiting;
 	}
 }
 

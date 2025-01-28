@@ -14,6 +14,8 @@ namespace Player
 		Direction bodypart_direction;
 		float bodypart_width;
 		float bodypart_height;
+		Direction previous_direction;
+
 		void CreateBodyPartImage();
 		void InitializeBodyPartImage();
 		sf::Vector2f GetBodyPartScreenPosition();
@@ -39,6 +41,7 @@ namespace Player
 		sf::Vector2i GetPrevPosition();
 		Direction GetDirection();
 		sf::Vector2i GetPosition();
+		Direction GetPreviousDirection();
 	};
 }
 

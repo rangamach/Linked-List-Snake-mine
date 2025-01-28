@@ -14,10 +14,16 @@ namespace Player
 		Alive,
 		Dead,
 	};
+	enum class InputState
+	{
+		Waiting,
+		Processing,
+	};
 	class SnakeController
 	{
 	private:
 		SnakeState snake_state;
+		InputState current_input_state;
 		const int initial_snake_length = 10;
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
 		const float movement_frame_duration = 0.1f;

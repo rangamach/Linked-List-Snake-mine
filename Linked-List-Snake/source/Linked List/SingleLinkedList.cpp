@@ -60,6 +60,21 @@ Node* SingleLinkedList::FindNodeAtIndex(int index)
 	return prev_node;
 }
 
+Direction SingleLinkedList::GetReverseDirection(Direction ref_dir)
+{
+	switch (ref_dir)
+	{
+	case Direction::Up:
+		return Direction::Down;
+	case Direction::Down:
+		return Direction::Up;
+	case Direction::Left:
+		return Direction::Right;
+	case Direction::Right:
+		return Direction::Left;
+	}
+}
+
 SingleLinkedList::SingleLinkedList()
 {
 	head_node = nullptr;
@@ -273,6 +288,34 @@ void SingleLinkedList::RemoveAllNodes()
 	while (head_node != nullptr)
 	{
 		RemoveNodeAtHead();
+	}
+}
+
+Direction SingleLinkedList::Reverse()
+{
+	Node* cur_node = head_node;
+	Node* prev_node = nullptr;
+	Node* next_node = nullptr;
+
+	while (cur_node != nullptr)
+	{
+		next_node = cur_node->next;
+		cur_node->next = prev_node;
+		prev_node = cur_node;
+		cur_node = next_node;
+	}
+	head_node = prev_node;
+	ReverseNodeDirection();
+	return	head_node->body_part.GetDirection();
+}
+
+void SingleLinkedList::ReverseNodeDirection()
+{
+	Node* cur_node = head_node;
+	while (cur_node != nullptr)
+	{
+		cur_node->body_part.SetDirection(GetReverseDirection(cur_node->body_part.GetPreviousDirection()));
+		cur_node = cur_node->next;
 	}
 }
 
