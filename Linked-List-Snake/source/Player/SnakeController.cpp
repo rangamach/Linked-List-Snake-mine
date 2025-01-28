@@ -2,6 +2,8 @@
 #include "../../include/Global/ServiceLocator.h"
 #include "../../include/Level/LevelService.h"
 #include "../../include/Event/EventService.h"
+#include "../../include/Food/FoodService.h"
+#include "../../include/Food/FoodType.h"
 
 using namespace Player;
 using namespace LinkedList;
@@ -10,6 +12,7 @@ using namespace Level;
 using namespace Event;
 using namespace Sound;
 using namespace Element;
+using namespace Food;
 
 void SnakeController::ProcessPlayerInput()
 {
@@ -72,6 +75,49 @@ void SnakeController::ProcessElementCollision()
 
 void SnakeController::ProcessFoodCollision()
 {
+	FoodService* food_service = ServiceLocator::getInstance()->GetFoodService();
+	FoodType food_type;
+
+	if (food_service->ProcessFoodCollision(single_linked_list->GetHeadNode(), food_type))
+	{
+		ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::PICKUP);
+		food_service->Destroy();
+		OnFoodCollected(food_type);
+	}
+}
+
+void SnakeController::OnFoodCollected(FoodType food_type)
+{
+	switch (food_type)
+	{
+	case FoodType::Pizza:
+		//insert at tail.
+		break;
+	case FoodType::Burger:
+		//insert at head.
+		break;
+	case FoodType::Cheese:
+		//insert at middle.
+		break;
+	case FoodType::Apple:
+		//delete at head.
+		break;
+	case FoodType::Mango:
+		//delete at middle.
+		break;
+	case FoodType::Orange:
+		//delete at tail.
+		break;
+	case FoodType::Poison:
+		//delete half of snake.
+		break;
+	case FoodType::Alcohol:
+		//reverse the snake.
+		break;
+
+	default:
+		break;
+	}
 }
 
 void SnakeController::HandleRestart()

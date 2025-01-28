@@ -48,11 +48,6 @@ void FoodItem::InitializeFoodImage()
 	food_image->show();
 }
 
-void FoodItem::Destroy()
-{
-	delete(food_image);
-}
-
 FoodItem::FoodItem()
 {
 	food_image = new UI::UIElement::ImageView();
@@ -60,7 +55,7 @@ FoodItem::FoodItem()
 
 FoodItem::~FoodItem()
 {
-	Destroy();
+	delete(food_image);
 }
 
 void FoodItem::Initialize(sf::Vector2i pos, float width, float height, FoodType type)
@@ -86,4 +81,9 @@ void FoodItem::Render()
 FoodType FoodItem::GetFoodType()
 {
 	return food_type;
+}
+
+sf::Vector2i FoodItem::GetFoodPosition()
+{
+	return position;
 }

@@ -17,7 +17,6 @@ namespace Food
 		sf::String GetFoodTexturePath();
 		sf::Vector2f GetFoodImagePosition();
 		void InitializeFoodImage();
-		void Destroy();
 	
 	public:
 		static const int number_of_food_items = 8;
@@ -30,6 +29,7 @@ namespace Food
 		void Render();
 
 		FoodType GetFoodType();
+		sf::Vector2i GetFoodPosition();
 	};
 }
 

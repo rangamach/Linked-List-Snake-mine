@@ -3,11 +3,12 @@
 #include <SFML/System/Vector2.hpp>
 #include "Direction.h"
 #include "Linked List/SingleLinkedList.h"
+#include "../Food/FoodType.h"
 
 namespace Player
 {
+	using namespace Food;
 	using namespace LinkedList;
-
 	enum class SnakeState
 	{
 		Alive,
@@ -35,6 +36,7 @@ namespace Player
 		void ProcessBodyCollision();
 		void ProcessElementCollision();
 		void ProcessFoodCollision();
+		void OnFoodCollected(FoodType food_type);
 		void HandleRestart();
 		void Reset();
 		void CreateLinkedList();

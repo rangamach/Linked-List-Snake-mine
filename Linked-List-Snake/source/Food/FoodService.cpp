@@ -3,6 +3,7 @@
 #include "../../include/Food/FoodType.h"
 #include "../../include/Global/ServiceLocator.h"
 #include "../../include/Level/LevelModel.h"
+#include "../../include/Linked List/Node.h"
 
 using namespace Food;
 using namespace Global;
@@ -83,6 +84,7 @@ void FoodService::Destroy()
 {
 	if(current_food_item)
 		delete(current_food_item);
+	current_food_item = nullptr;
 }
 
 FoodService::FoodService() : random_engine(random_device())
@@ -134,4 +136,14 @@ void FoodService::StopFoodSpawning()
 	current_food_spawning_status = FoodSpawningStatus::Inactive;
 	Destroy();
 	Reset();
+}
+
+bool FoodService::ProcessFoodCollision(LinkedList::Node* head_node, FoodType& out_food_type)
+{
+	if (current_food_item && current_food_item->GetFoodPosition() == head_node->body_part.GetPosition())
+	{
+		out_food_type = current_food_item->GetFoodType();
+		return true;
+	}
+	return false;
 }

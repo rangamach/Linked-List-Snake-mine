@@ -45,6 +45,7 @@ namespace Global
         Level::LevelService* GetLevelService();
         Player::PlayerService* GetPlayerService();
         Element::ElementService* GetElementService();
+        Food::FoodService* GetFoodService();
         void deleteServiceLocator();
     };
 }
