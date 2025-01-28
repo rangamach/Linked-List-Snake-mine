@@ -4,6 +4,7 @@
 #include "../../include/Event/EventService.h"
 #include "../../include/Food/FoodService.h"
 #include "../../include/Food/FoodType.h"
+#include <iostream>
 
 using namespace Player;
 using namespace LinkedList;
@@ -96,29 +97,46 @@ void SnakeController::OnFoodCollected(FoodType food_type)
 {
 	switch (food_type)
 	{
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 	case FoodType::Pizza:
 		//insert at tail.
+		single_linked_list->InsertNodeAtTail();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	case FoodType::Burger:
 		//insert at head.
+		single_linked_list->InsertNodeAtHead();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	case FoodType::Cheese:
 		//insert at middle.
+		single_linked_list->InsertNodeAtMiddle();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	case FoodType::Apple:
 		//delete at head.
+		single_linked_list->RemoveNodeAtHead();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	case FoodType::Mango:
 		//delete at middle.
+		single_linked_list->RemoveNodeAtMiddle();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	case FoodType::Orange:
 		//delete at tail.
+		single_linked_list->RemoveNodeAtTail();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	case FoodType::Poison:
 		//delete half of snake.
+		single_linked_list->RemoveHalfNodes();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	case FoodType::Alcohol:
 		//reverse the snake.
+		direction = single_linked_list->Reverse();
+		std::cout << "Snake Size: " << single_linked_list->GetSnakeSize() << "\n";
 		break;
 	default:
 		break;

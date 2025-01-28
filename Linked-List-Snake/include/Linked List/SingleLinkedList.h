@@ -54,6 +54,7 @@ namespace LinkedList
 		bool ProcessNodeCollision();
 		std::vector<sf::Vector2i> GetNodePositionsList();
 		Node* GetHeadNode();
+		int GetSnakeSize();
 			
 	};
 }

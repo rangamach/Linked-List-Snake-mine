@@ -202,8 +202,8 @@ void SingleLinkedList::ShiftNodeAfterRemoval(Node* cur_node)
 	{
 		sf::Vector2i temp_node_pos = cur_node->body_part.GetPosition();
 		Direction temp_node_dir = cur_node->body_part.GetDirection();
-		cur_node->body_part.SetPosition(temp_node_pos);
-		cur_node->body_part.SetDirection(temp_node_dir);
+		cur_node->body_part.SetPosition(prev_node_pos);
+		cur_node->body_part.SetDirection(prev_node_dir);
 		cur_node = cur_node->next;
 		prev_node_pos = temp_node_pos;
 		prev_node_dir = temp_node_dir;
@@ -250,7 +250,6 @@ void SingleLinkedList::RemoveNodeAtMiddle()
 void SingleLinkedList::RemoveNodeAtTail()
 {
 	if (head_node == nullptr) return;
-	linked_list_size--;
 	Node* cur_node = head_node;
 	if (cur_node->next == nullptr)
 	{
@@ -259,9 +258,10 @@ void SingleLinkedList::RemoveNodeAtTail()
 	}
 	while (cur_node->next->next != nullptr)
 	{
-		cur_node->next;
+		cur_node = cur_node->next;
 	}
 	delete(cur_node->next);
+	linked_list_size--;
 	cur_node->next = nullptr;
 }
 
@@ -373,4 +373,9 @@ std::vector<sf::Vector2i> SingleLinkedList::GetNodePositionsList()
 Node* SingleLinkedList::GetHeadNode()
 {
 	return head_node;
+}
+
+int LinkedList::SingleLinkedList::GetSnakeSize()
+{
+	return linked_list_size;
 }
