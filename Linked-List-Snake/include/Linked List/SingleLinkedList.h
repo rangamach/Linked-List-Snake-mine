@@ -42,6 +42,7 @@ namespace LinkedList
 		void RemoveNodeAtIndex(int index);
 		void RemoveNodeAt(int index);
 		void RemoveNodeAtMiddle();
+		void RemoveNodeAtTail();
 		void RemoveAllNodes();
 		void UpdateNodeDirection(Direction new_direction);
 		void UpdateNodePosition();

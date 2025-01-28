@@ -218,6 +218,24 @@ void SingleLinkedList::RemoveNodeAtMiddle()
 	RemoveNodeAt(mid_ind);
 }
 
+void SingleLinkedList::RemoveNodeAtTail()
+{
+	if (head_node == nullptr) return;
+	linked_list_size--;
+	Node* cur_node = head_node;
+	if (cur_node->next == nullptr)
+	{
+		RemoveNodeAtHead();
+		return;
+	}
+	while (cur_node->next->next != nullptr)
+	{
+		cur_node->next;
+	}
+	delete(cur_node->next);
+	cur_node->next = nullptr;
+}
+
 void SingleLinkedList::RemoveAllNodes()
 {
 	if (head_node == nullptr) return;
