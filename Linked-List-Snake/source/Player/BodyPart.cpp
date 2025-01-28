@@ -52,25 +52,21 @@ void BodyPart::UpdatePosition()
 
 sf::Vector2i Player::BodyPart::GetNextPositionLeft()
 {
-	//return sf::Vector2i(bodypart_grid_position.x - 1, bodypart_grid_position.y);
 	return sf::Vector2i((bodypart_grid_position.x - 1 + LevelModel::number_of_columns) % (LevelModel::number_of_columns), bodypart_grid_position.y);
 }
 
 sf::Vector2i Player::BodyPart::GetNextPositionRight()
 {
-	//return sf::Vector2i(bodypart_grid_position.x + 1, bodypart_grid_position.y);
 	return sf::Vector2i((bodypart_grid_position.x + 1) % (LevelModel::number_of_columns), bodypart_grid_position.y);
 }
 
 sf::Vector2i Player::BodyPart::GetNextPositionUp()
 {
-	//return sf::Vector2i(bodypart_grid_position.x, bodypart_grid_position.y - 1);
 	return sf::Vector2i(bodypart_grid_position.x, (bodypart_grid_position.y - 1 + (LevelModel::number_of_rows)) % (LevelModel::number_of_rows));
 }
 
 sf::Vector2i Player::BodyPart::GetNextPositionDown()
 {
-	//return sf::Vector2i(bodypart_grid_position.x, bodypart_grid_position.y + 1);
 	return sf::Vector2i(bodypart_grid_position.x, (bodypart_grid_position.y + 1) % (LevelModel::number_of_rows));
 }
 
@@ -127,6 +123,23 @@ sf::Vector2i BodyPart::GetNextPosition()
 	case Player::Direction::Left:
 		return GetNextPositionLeft();
 	case Player::Direction::Right:
+		return GetNextPositionRight();
+	default:
+		return bodypart_grid_position;
+	}
+}
+
+sf::Vector2i BodyPart::GetPrevPosition()
+{
+	switch (bodypart_direction)
+	{
+	case Direction::Up:
+		return GetNextPositionDown();
+	case Direction::Down:
+		return GetNextPositionUp();
+	case Direction::Right:
+		return GetNextPositionLeft();
+	case Direction::Left:
 		return GetNextPositionRight();
 	default:
 		return bodypart_grid_position;

@@ -8,27 +8,47 @@ Node* SingleLinkedList::CreateNode()
 	return new Node();
 }
 
-sf::Vector2i SingleLinkedList::GetNewNodePosition(Node* ref_node)
+sf::Vector2i SingleLinkedList::GetNewNodePosition(Node* ref_node, Operation operation)
 {
-	Direction ref_direction = ref_node->body_part.GetDirection();
-	sf::Vector2i ref_position = ref_node->body_part.GetPosition();
-
-	switch (ref_direction)
+	switch (operation)
 	{
-	case Direction::Up:
-		return sf::Vector2i(ref_position.x, ref_position.y - 1);
-		break;
-	case Direction::Down:
-		return sf::Vector2i(ref_position.x, ref_position.y + 1);
-		break;
-	case Direction::Left:
-		return sf::Vector2i(ref_position.x + 1, ref_position.y);
-		break;
-	case Direction::Right:
-		return sf::Vector2i(ref_position.x - 1, ref_position.y);
-		break;
+	case Operation::Head:
+		return ref_node->body_part.GetNextPosition();
+	case Operation::Tail:
+		return ref_node->body_part.GetPrevPosition();
 	}
 	return default_position;
+
+	//Direction ref_direction = ref_node->body_part.GetDirection();
+	//sf::Vector2i ref_position = ref_node->body_part.GetPosition();
+
+	//switch (ref_direction)
+	//{
+	//case Direction::Up:
+	//	return sf::Vector2i(ref_position.x, ref_position.y - 1);
+	//	break;
+	//case Direction::Down:
+	//	return sf::Vector2i(ref_position.x, ref_position.y + 1);
+	//	break;
+	//case Direction::Left:
+	//	return sf::Vector2i(ref_position.x + 1, ref_position.y);
+	//	break;
+	//case Direction::Right:
+	//	return sf::Vector2i(ref_position.x - 1, ref_position.y);
+	//	break;
+	//}
+	//return default_position;
+}
+
+void SingleLinkedList::InitializeNode(Node* new_node, Node* ref_node, Operation operation)
+{
+	if (ref_node == nullptr)
+	{
+		new_node->body_part.Initialize(node_width, node_height, default_position, default_direction);
+		return;
+	}
+	sf::Vector2i position = GetNewNodePosition(ref_node, operation);
+	new_node->body_part.Initialize(node_width, node_height, position, ref_node->body_part.GetDirection());
 }
 
 SingleLinkedList::SingleLinkedList()

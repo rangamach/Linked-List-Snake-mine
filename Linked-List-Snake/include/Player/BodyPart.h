@@ -14,8 +14,6 @@ namespace Player
 		Direction bodypart_direction;
 		float bodypart_width;
 		float bodypart_height;
-
-	private:
 		void CreateBodyPartImage();
 		void InitializeBodyPartImage();
 		sf::Vector2f GetBodyPartScreenPosition();
@@ -24,6 +22,7 @@ namespace Player
 		sf::Vector2i GetNextPositionRight();
 		sf::Vector2i GetNextPositionUp();
 		sf::Vector2i GetNextPositionDown();
+
 		void Destroy();
 
 	public:
@@ -37,6 +36,7 @@ namespace Player
 		void SetPosition(sf::Vector2i position);
 		void UpdatePosition();
 		sf::Vector2i GetNextPosition();
+		sf::Vector2i GetPrevPosition();
 		Direction GetDirection();
 		sf::Vector2i GetPosition();
 	};

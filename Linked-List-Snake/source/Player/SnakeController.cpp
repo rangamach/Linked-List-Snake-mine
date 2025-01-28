@@ -114,7 +114,6 @@ void SnakeController::OnFoodCollected(FoodType food_type)
 	case FoodType::Alcohol:
 		//reverse the snake.
 		break;
-
 	default:
 		break;
 	}
