@@ -233,5 +233,11 @@
     <ClInclude Include="include\UI\Gameplay\GameplayUIController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="include\Linked List\Single Linked List\SingleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\Double Linked List\DoubleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
