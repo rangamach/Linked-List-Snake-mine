@@ -49,3 +49,18 @@ std::vector<sf::Vector2i> PlayerService::GetCurrentSnakePositionList()
 {
 	return snake_controller->GetCurrentSnakePositionList();
 }
+
+int Player::PlayerService::GetPlayerScore()
+{
+	return snake_controller->GetPlayerScore();;
+}
+
+TimeComplexity PlayerService::GetTimeComplexity()
+{
+	return snake_controller->GetTimeComplexity();
+}
+
+LinkedListOperation PlayerService::GetLinkedListOperation()
+{
+	return snake_controller->GetLinkedListOperation();
+}

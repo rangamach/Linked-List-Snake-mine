@@ -48,6 +48,11 @@ float LevelService::GetCellHeight()
 	return level_controller->GetCellHeight();
 }
 
+LevelNumber LevelService::GetCurrentLevelNumber()
+{
+	return current_level;
+}
+
 LevelService::LevelService()
 {
 	level_controller = nullptr;

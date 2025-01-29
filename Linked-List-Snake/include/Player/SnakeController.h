@@ -19,17 +19,38 @@ namespace Player
 		Waiting,
 		Processing,
 	};
+	enum class TimeComplexity
+	{
+		None,
+		One,
+		N
+	};
+	enum class LinkedListOperation
+	{
+		None,
+		Insert_At_Head,
+		Insert_At_Mid,
+		Insert_At_End,
+		Remove_At_Head,
+		Remove_At_Mid,
+		Remove_At_End,
+		Delete_Half_List,
+		Reverse_List,
+	};
 	class SnakeController
 	{
 	private:
 		SnakeState snake_state;
 		InputState current_input_state;
+		TimeComplexity time_complexity;
+		LinkedListOperation linked_list_operation;
 		const int initial_snake_length = 10;
 		const sf::Vector2i default_position = sf::Vector2i(25, 13);
 		const float movement_frame_duration = 0.1f;
 		const float restart_duration = 2.f;
 		float elapsed_time;
 		float restart_counter;
+		int player_score;
 
 		Direction default_direction = Direction::Right;
 		Direction direction;
@@ -62,6 +83,9 @@ namespace Player
 		SnakeState GetSnakeState();
 		void SetSnakeState(SnakeState state);
 		std::vector<sf::Vector2i> GetCurrentSnakePositionList();
+		int GetPlayerScore();
+		TimeComplexity GetTimeComplexity();
+		LinkedListOperation GetLinkedListOperation();
 	};
 }
 

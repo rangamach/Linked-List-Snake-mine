@@ -2,6 +2,7 @@
 
 #include <SFML/System/Vector2.hpp>
 #include <vector>
+#include "SnakeController.h"
 
 namespace Player
 {
@@ -24,6 +25,9 @@ namespace Player
 
 		void SpawnPlayer();
 		std::vector<sf::Vector2i> GetCurrentSnakePositionList();
+		int GetPlayerScore();
+		TimeComplexity GetTimeComplexity();
+		LinkedListOperation GetLinkedListOperation();
 	};
 }
 
