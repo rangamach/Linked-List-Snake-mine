@@ -114,6 +114,9 @@
     <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="source\Linked List\Linked_List.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\Main\GameService.h">
@@ -237,6 +240,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Linked List\Double Linked List\DoubleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\Linked_List.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
