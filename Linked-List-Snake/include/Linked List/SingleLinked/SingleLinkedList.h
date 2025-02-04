@@ -30,6 +30,7 @@ namespace LinkedList
 		void RemoveNodeAtHead() override;
 		void RemoveNodeAtMiddle() override;
 		void RemoveNodeAt(int index) override;
+		void RemoveAllNodes() override;
 		void RemoveHalfNodes() override;
 		void ShiftNodeAfterRemoval(Node* cur_node);
 		Direction Reverse() override;
