@@ -96,7 +96,7 @@
     <ClCompile Include="source\Player\BodyPart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Linked List\SingleLinkedList.cpp">
+    <ClCompile Include="source\Linked List\SingleLinked\SingleLinkedList.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\Element\Obstacle.cpp">
@@ -112,6 +112,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Linked List\LinkedList_Base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -209,7 +212,7 @@
     <ClInclude Include="include\Linked List\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Linked List\SingleLinkedList.h">
+    <ClInclude Include="include\Linked List\SingleLinked\SingleLinkedList.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\Element\ElementData.h">
@@ -231,6 +234,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\UI\Gameplay\GameplayUIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\SingleLinked\SingleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\DoubleLinked\DoubleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\LinkedList_Base.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
