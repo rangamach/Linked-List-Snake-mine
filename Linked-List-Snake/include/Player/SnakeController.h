@@ -2,13 +2,13 @@
 
 #include <SFML/System/Vector2.hpp>
 #include "Direction.h"
-#include "Linked List/SingleLinkedList.h"
+#include "Linked List/SingleLinked/SingleLinkedList.h"
 #include "../Food/FoodType.h"
 
 namespace Player
 {
 	using namespace Food;
-	using namespace LinkedList;
+	using namespace LinkedList::SingleList;
 	enum class SnakeState
 	{
 		Alive,

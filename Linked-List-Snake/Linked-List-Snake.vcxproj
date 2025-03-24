@@ -133,12 +133,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Linked List\LinkedListBase.cpp" />
     <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp" />
     <ClCompile Include="source\Food\FoodService.cpp" />
     <ClCompile Include="source\Food\FoodItem.cpp" />
     <ClCompile Include="source\Element\ElementService.cpp" />
     <ClCompile Include="source\Element\Obstacle.cpp" />
-    <ClCompile Include="source\Linked List\SingleLinkedList.cpp" />
+    <ClCompile Include="source\Linked List\SingleLinked\SingleLinkedList.cpp" />
     <ClCompile Include="source\Player\BodyPart.cpp" />
     <ClCompile Include="source\Player\SnakeController.cpp" />
     <ClCompile Include="source\Player\PlayerService.cpp" />
@@ -206,9 +207,10 @@
     <ClInclude Include="include\Player\PlayerService.h" />
     <ClInclude Include="include\Player\SnakeController.h" />
     <ClInclude Include="include\Linked List\Node.h" />
-    <ClInclude Include="include\Linked List\SingleLinkedList.h" />
+    <ClInclude Include="include\Linked List\SingleLinked\SingleLinkedList.h" />
     <ClInclude Include="include\Element\Obstacle.h" />
     <ClInclude Include="include\Linked List\SingleLinked\SingleNode.h" />
+    <ClInclude Include="include\Linked List\LinkedListBase.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
