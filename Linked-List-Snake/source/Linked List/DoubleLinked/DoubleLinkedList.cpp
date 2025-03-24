@@ -13,6 +13,21 @@ namespace LinkedList
 		DoubleLinkedList::~DoubleLinkedList() = default;
 		void DoubleLinkedList::InsertNodeAtTail()
 		{
+			linked_list_size++;
+			Node* new_node = CreateNode();
+			Node* cur_node = head_node;
+			if (cur_node == nullptr)
+			{
+				head_node = new_node;
+				static_cast<DoubleNode*>(new_node)->prev = nullptr;
+				InitializeNode(new_node, nullptr, Operation::Tail);
+				return;
+			}
+			while (cur_node->next != nullptr)
+				cur_node = cur_node->next;
+			cur_node->next = new_node;
+			static_cast<DoubleNode*>(new_node)->prev = cur_node;
+			InitializeNode(new_node, cur_node, Operation::Tail);
 		}
 		void DoubleLinkedList::InsertNodeAtHead()
 		{
