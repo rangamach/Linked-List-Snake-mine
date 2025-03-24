@@ -49,12 +49,54 @@ namespace LinkedList
 		}
 		void DoubleLinkedList::InsertNodeAtMiddle()
 		{
+			if (head_node == nullptr)
+			{
+				InsertNodeAtHead();
+				return;
+			}
+			int mid_index = FindMiddleNode();
+			InsertNodeAtIndex(mid_index);
 		}
 		void DoubleLinkedList::InsertNodeAtIndex(int index)
 		{
+			if (index < 0 || index >= linked_list_size) return;
+			if (index == 0)
+			{
+				InsertNodeAtHead();
+				return;
+			}
+			Node* new_node = CreateNode();
+			int cur_index = 0;
+			Node* cur_node = head_node;
+			Node* prev_node = nullptr;
+			while (cur_node != nullptr && cur_index < index)
+			{
+				prev_node = cur_node;
+				cur_node = cur_node->next;
+				cur_index++;
+			}
+			prev_node->next = new_node;
+			static_cast<DoubleNode*>(new_node)->prev = prev_node;
+			new_node->next = cur_node;
+			static_cast<DoubleNode*>(cur_node)->prev = new_node;
+			InitializeNode(new_node, prev_node, Operation::Tail);
+			linked_list_size++;
+			ShiftNodeAfterInsertion(new_node, cur_node, prev_node);
 		}
 		void DoubleLinkedList::ShiftNodeAfterInsertion(Node* new_node, Node* cur_node, Node* prev_node)
 		{
+			Node* next_node = cur_node;
+
+			while (cur_node != nullptr && next_node != nullptr)
+			{
+				cur_node->body_part.SetPosition(next_node->body_part.GetPosition());
+				cur_node->body_part.SetDirection(next_node->body_part.GetDirection());
+
+				prev_node = cur_node;
+				cur_node = next_node;
+				next_node = next_node->next;
+			}
+			InitializeNode(cur_node, prev_node, Operation::Tail);
 		}
 		void DoubleLinkedList::RemoveNodeAtTail()
 		{
