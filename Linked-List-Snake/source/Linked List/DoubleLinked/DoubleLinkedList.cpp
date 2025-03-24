@@ -1,4 +1,5 @@
 #include "../../include/Linked List/DoubleLinked/DoubleLinkedList.h"
+#include "../../include/Linked List/DoubleLinked/DoubleNode.h"
 
 namespace LinkedList
 {
@@ -6,7 +7,7 @@ namespace LinkedList
 	{
 		Node* DoubleLinkedList::CreateNode()
 		{
-			return nullptr;
+			return new DoubleNode();
 		}
 		DoubleLinkedList::DoubleLinkedList() = default;
 		DoubleLinkedList::~DoubleLinkedList() = default;
@@ -15,6 +16,21 @@ namespace LinkedList
 		}
 		void DoubleLinkedList::InsertNodeAtHead()
 		{
+			linked_list_size++;
+			Node* new_node = CreateNode();
+			Node* cur_node = head_node;
+			if (cur_node == nullptr)
+			{
+				head_node = new_node;
+				static_cast<DoubleNode*>(new_node)->prev = nullptr;
+				InitializeNode(new_node, nullptr, Operation::Tail);
+				return;
+			}
+			InitializeNode(new_node, head_node, Operation::Head);
+			new_node->next = head_node;
+			static_cast<DoubleNode*>(head_node)->prev = new_node;
+
+			head_node = new_node;
 		}
 		void DoubleLinkedList::InsertNodeAtMiddle()
 		{
