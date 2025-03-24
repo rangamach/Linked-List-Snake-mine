@@ -159,6 +159,9 @@ namespace LinkedList
 		}
 		void DoubleLinkedList::RemoveAllNodes()
 		{
+			if (head_node == nullptr) return;
+			while (head_node != nullptr)
+				RemoveNodeAtHead();
 		}
 		void DoubleLinkedList::RemoveHalfNodes()
 		{
