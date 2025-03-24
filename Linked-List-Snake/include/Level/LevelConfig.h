@@ -7,5 +7,11 @@ namespace Level
 		One,
 		Two,
 	};
+
+	enum class LinkedListType
+	{
+		Single,
+		Double,
+	};
 }
 

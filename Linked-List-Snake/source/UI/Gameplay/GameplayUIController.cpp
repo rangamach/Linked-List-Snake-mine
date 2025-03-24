@@ -1,5 +1,5 @@
 #include "../../include/UI/Gameplay/GameplayUIController.h"
-#include "../../include/Level/LevelNumber.h"
+#include "../../include/Level/LevelConfig.h"
 #include "../../include/Global/ServiceLocator.h"
 #include "../../include/Player/SnakeController.h"
 

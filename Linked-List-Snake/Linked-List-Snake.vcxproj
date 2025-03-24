@@ -203,7 +203,7 @@
     <ClInclude Include="include\Level\LevelController.h" />
     <ClInclude Include="include\Level\LevelService.h" />
     <ClInclude Include="include\Level\LevelData.h" />
-    <ClInclude Include="include\Level\LevelNumber.h" />
+    <ClInclude Include="include\Level\LevelConfig.h" />
     <ClInclude Include="include\UI\UIElement\RectangleShapeView.h" />
     <ClInclude Include="include\UI\LevelSelection\LevelSelectionUIController.h" />
     <ClInclude Include="include\Player\PlayerService.h" />

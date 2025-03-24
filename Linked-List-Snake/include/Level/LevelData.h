@@ -1,7 +1,6 @@
 #pragma once
-#include "LevelNumber.h"
+#include "LevelConfig.h"
 #include "../Element/ElementData.h"
-#include "LevelNumber.h"
 #include <vector>
 
 namespace Level
