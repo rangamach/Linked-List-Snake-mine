@@ -133,6 +133,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\Linked List\DoubleLinked\DoubleLinkedList.cpp" />
     <ClCompile Include="source\Linked List\LinkedListBase.cpp" />
     <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp" />
     <ClCompile Include="source\Food\FoodService.cpp" />
@@ -169,6 +170,7 @@
     <ClCompile Include="source\UI\UIElement\UIView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Linked List\DoubleLinked\DoubleLinkedList.h" />
     <ClInclude Include="include\Linked List\DoubleLinked\DoubleNode.h" />
     <ClInclude Include="include\UI\Gameplay\GameplayUIController.h" />
     <ClInclude Include="include\Food\FoodService.h" />
