@@ -59,21 +59,21 @@ float LevelSelectionUIController::CalculateButtonXOffset()
 void LevelSelectionUIController::LevelOneButtonCallback()
 {
 	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-	GameService::setGameState(GameState::GAMEPLAY);
+	GameService::setGameState(GameState::LINKED_LIST_SELECTION);
 	ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::One);
 }
 
 void LevelSelectionUIController::LevelTwoButtonCallback()
 {
 	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-	GameService::setGameState(GameState::GAMEPLAY);
+	GameService::setGameState(GameState::LINKED_LIST_SELECTION);
 	ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::Two);
 }
 
 void LevelSelectionUIController::MenuButtonCallback()
 {
 	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
-	GameService::setGameState(GameState::GAMEPLAY);
+	GameService::setGameState(GameState::MAIN_MENU);
 }
 
 void LevelSelectionUIController::Destroy()

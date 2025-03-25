@@ -96,9 +96,6 @@
     <ClCompile Include="source\Player\BodyPart.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="source\Linked List\SingleLinkedList.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="source\Element\Obstacle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -112,6 +109,18 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Linked List\DoubleLinked\DoubleLinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Linked List\LinkedListBase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Linked List\SingleLinked\SingleLinkedList.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="source\UI\LinkedListSelection\LinkedListSelectionUIController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -185,9 +194,6 @@
     <ClInclude Include="include\Level\LevelData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Level\LevelNumber.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\UI\UIElement\RectangleShapeView.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -209,9 +215,6 @@
     <ClInclude Include="include\Linked List\Node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include\Linked List\SingleLinkedList.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="include\Element\ElementData.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -231,6 +234,27 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="include\UI\Gameplay\GameplayUIController.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\DoubleLinked\DoubleLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\DoubleLinked\DoubleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Level\LevelConfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\SingleLinked\SingleLinkedList.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\SingleLinked\SingleNode.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\Linked List\LinkedListBase.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UI\LinkedListSelection\LinkedListSelectionUIController.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
