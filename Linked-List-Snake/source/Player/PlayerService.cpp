@@ -65,3 +65,8 @@ LinkedListOperation PlayerService::GetLinkedListOperation()
 {
 	return snake_controller->GetLinkedListOperation();
 }
+
+bool Player::PlayerService::IsPlayerDead()
+{
+	return snake_controller->IsSnakeDead();
+}

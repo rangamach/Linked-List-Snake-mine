@@ -67,6 +67,7 @@ void FoodService::UpdateElapsedDuration()
 
 void FoodService::HandleFoodSpawning()
 {
+	if (ServiceLocator::getInstance()->GetPlayerService()->IsPlayerDead()) return;
 	if (elapsed_duration >= spawn_duration)
 	{
 		Destroy();

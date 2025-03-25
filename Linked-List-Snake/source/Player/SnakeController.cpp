@@ -302,3 +302,8 @@ LinkedListOperation SnakeController::GetLinkedListOperation()
 {
 	return linked_list_operation;
 }
+
+bool SnakeController::IsSnakeDead()
+{
+	return snake_state == SnakeState::Dead;
+}

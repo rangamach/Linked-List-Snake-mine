@@ -91,6 +91,7 @@ namespace Player
 		int GetPlayerScore();
 		TimeComplexity GetTimeComplexity();
 		LinkedListOperation GetLinkedListOperation();
+		bool IsSnakeDead();
 	};
 }
 
