@@ -101,7 +101,7 @@ void FoodService::Initialize()
 {
 	elapsed_duration = spawn_duration;
 
-	StartFoodSpawning();
+	//StartFoodSpawning();
 }
 
 void FoodService::Update()

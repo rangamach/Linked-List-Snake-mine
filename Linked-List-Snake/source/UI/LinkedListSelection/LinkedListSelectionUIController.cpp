@@ -61,6 +61,7 @@ void LinkedListSelectionUIController::SingleLinkedListButtonCallback()
 {
 	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 	GameService::setGameState(GameState::GAMEPLAY);
+	ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LinkedListType::Single);
 	//ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::One);
 }
 
@@ -68,6 +69,7 @@ void LinkedListSelectionUIController::DoubleLinkedListButtonCallback()
 {
 	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 	GameService::setGameState(GameState::GAMEPLAY);
+	ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LinkedListType::Double);
 	//ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::Two);
 }
 

@@ -60,14 +60,16 @@ void LevelSelectionUIController::LevelOneButtonCallback()
 {
 	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 	GameService::setGameState(GameState::LINKED_LIST_SELECTION);
-	ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::One);
+	ServiceLocator::getInstance()->GetLevelService()->SetLevelNumber(Level::LevelNumber::One);
+	//ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::One);
 }
 
 void LevelSelectionUIController::LevelTwoButtonCallback()
 {
 	ServiceLocator::getInstance()->getSoundService()->playSound(SoundType::BUTTON_CLICK);
 	GameService::setGameState(GameState::LINKED_LIST_SELECTION);
-	ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::Two);
+	ServiceLocator::getInstance()->GetLevelService()->SetLevelNumber(Level::LevelNumber::Two);
+	//ServiceLocator::getInstance()->GetLevelService()->CreateLevel(Level::LevelNumber::Two);
 }
 
 void LevelSelectionUIController::MenuButtonCallback()

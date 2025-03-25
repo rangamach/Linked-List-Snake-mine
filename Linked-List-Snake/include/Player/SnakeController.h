@@ -2,13 +2,16 @@
 
 #include <SFML/System/Vector2.hpp>
 #include "Direction.h"
-#include "Linked List/SingleLinked/SingleLinkedList.h"
+//#include "Linked List/SingleLinked/SingleLinkedList.h"
+#include "../Linked List/LinkedListBase.h"
 #include "../Food/FoodType.h"
+#include "../Level/LevelConfig.h"
 
 namespace Player
 {
 	using namespace Food;
-	using namespace LinkedList::SingleList;
+	//using namespace LinkedList::SingleList;
+	using namespace LinkedList;
 	enum class SnakeState
 	{
 		Alive,
@@ -54,9 +57,11 @@ namespace Player
 
 		Direction default_direction = Direction::Right;
 		Direction direction;
-		SingleLinkedList* single_linked_list;
+		//SingleLinkedList* single_linked_list;
+		LinkedListBase* linked_list_base;
 
 		void ProcessPlayerInput();
+		void InitializeLinkedList();
 		void UpdateSnakeDirection();
 		void MoveSnake();
 		void ProcessSnakeCollision();
@@ -66,7 +71,6 @@ namespace Player
 		void OnFoodCollected(FoodType food_type);
 		void HandleRestart();
 		void Reset();
-		void CreateLinkedList();
 		void DelayedUpdate();
 		void SpawnSnake();
 		void Destroy();
@@ -79,6 +83,7 @@ namespace Player
 		void Update();
 		void Render();
 
+		void CreateLinkedList(Level::LinkedListType list_type);
 		void RespawnSnake();
 		SnakeState GetSnakeState();
 		void SetSnakeState(SnakeState state);

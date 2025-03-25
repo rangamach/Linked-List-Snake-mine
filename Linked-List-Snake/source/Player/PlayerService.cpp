@@ -40,8 +40,9 @@ void PlayerService::Render()
 	snake_controller->Render();
 }
 
-void PlayerService::SpawnPlayer()
+void PlayerService::SpawnPlayer(Level::LinkedListType list_type)
 {
+	snake_controller->CreateLinkedList(list_type);
 	snake_controller->RespawnSnake();
 }
 
