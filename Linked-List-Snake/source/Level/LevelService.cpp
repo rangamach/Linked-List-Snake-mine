@@ -43,8 +43,8 @@ void LevelService::CreateLevel(LinkedListType list_type)
 {
 	current_list_type = list_type;
 	SpawnLevelElements(current_level);
-	SpawnFood();
 	SpawnPlayer();
+	SpawnFood();
 }
 
 float LevelService::GetCellWidth()

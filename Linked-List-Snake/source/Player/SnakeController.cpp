@@ -236,6 +236,8 @@ void SnakeController::Initialize()
 	//float width = ServiceLocator::getInstance()->GetLevelService()->GetCellWidth();
 	//float height = ServiceLocator::getInstance()->GetLevelService()->GetCellHeight();
 
+	//Reset();
+
 	//linked_list_base->Initialize(width, height, default_position, default_direction);
 }
 
