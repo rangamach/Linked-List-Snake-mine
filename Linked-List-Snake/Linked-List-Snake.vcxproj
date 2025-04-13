@@ -133,6 +133,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="source\UI\LinkedListSelection\LinkedListSelectionUIController.cpp" />
+    <ClCompile Include="source\Linked List\DoubleLinked\DoubleLinkedList.cpp" />
+    <ClCompile Include="source\Linked List\LinkedListBase.cpp" />
+    <ClCompile Include="source\UI\Gameplay\GameplayUIController.cpp" />
+    <ClCompile Include="source\Food\FoodService.cpp" />
+    <ClCompile Include="source\Food\FoodItem.cpp" />
+    <ClCompile Include="source\Element\ElementService.cpp" />
+    <ClCompile Include="source\Element\Obstacle.cpp" />
+    <ClCompile Include="source\Linked List\SingleLinked\SingleLinkedList.cpp" />
+    <ClCompile Include="source\Player\BodyPart.cpp" />
+    <ClCompile Include="source\Player\SnakeController.cpp" />
+    <ClCompile Include="source\Player\PlayerService.cpp" />
+    <ClCompile Include="source\UI\LevelSelection\LevelSelectionUIController.cpp" />
+    <ClCompile Include="source\UI\UIElement\RectangleShapeView.cpp" />
+    <ClCompile Include="source\Level\LevelService.cpp" />
+    <ClCompile Include="source\Level\LevelController.cpp" />
+    <ClCompile Include="source\Level\LevelView.cpp" />
+    <ClCompile Include="source\Level\LevelModel.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="source\Time\TimeService.cpp" />
     <ClCompile Include="source\UI\Credits\CreditsScreenUIController.cpp" />
@@ -153,6 +171,16 @@
     <ClCompile Include="source\UI\UIElement\UIView.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\Linked List\DoubleLinked\DoubleLinkedList.h" />
+    <ClInclude Include="include\Linked List\DoubleLinked\DoubleNode.h" />
+    <ClInclude Include="include\UI\Gameplay\GameplayUIController.h" />
+    <ClInclude Include="include\Food\FoodService.h" />
+    <ClInclude Include="include\Food\FoodItem.h" />
+    <ClInclude Include="include\Food\FoodType.h" />
+    <ClInclude Include="include\Element\ElementService.h" />
+    <ClInclude Include="include\Element\ElementData.h" />
+    <ClInclude Include="include\Player\BodyPart.h" />
+    <ClInclude Include="include\Player\Direction.h" />
     <ClInclude Include="include\Time\TimeService.h" />
     <ClInclude Include="include\UI\Credits\CreditsScreenUIController.h" />
     <ClInclude Include="include\UI\Instructions\InstructionsScreenUIController.h" />
@@ -171,6 +199,22 @@
     <ClInclude Include="include\UI\UIElement\TextView.h" />
     <ClInclude Include="include\UI\UIService.h" />
     <ClInclude Include="include\UI\UIElement\UIView.h" />
+    <ClInclude Include="include\Level\LevelModel.h" />
+    <ClInclude Include="include\Level\LevelView.h" />
+    <ClInclude Include="include\Level\LevelController.h" />
+    <ClInclude Include="include\Level\LevelService.h" />
+    <ClInclude Include="include\Level\LevelData.h" />
+    <ClInclude Include="include\Level\LevelConfig.h" />
+    <ClInclude Include="include\UI\UIElement\RectangleShapeView.h" />
+    <ClInclude Include="include\UI\LevelSelection\LevelSelectionUIController.h" />
+    <ClInclude Include="include\Player\PlayerService.h" />
+    <ClInclude Include="include\Player\SnakeController.h" />
+    <ClInclude Include="include\Linked List\Node.h" />
+    <ClInclude Include="include\Linked List\SingleLinked\SingleLinkedList.h" />
+    <ClInclude Include="include\Element\Obstacle.h" />
+    <ClInclude Include="include\Linked List\SingleLinked\SingleNode.h" />
+    <ClInclude Include="include\Linked List\LinkedListBase.h" />
+    <ClInclude Include="include\UI\LinkedListSelection\LinkedListSelectionUIController.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
